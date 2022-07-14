@@ -1,0 +1,29 @@
+RegisterNetEvent('ciuszki')
+AddEventHandler('ciuszki', function(xPlayer)
+	exports.dopeNotify:SendNotification({					
+	text = '<b><i class="fas fa-bell"></i> POWIADOMIENIE</span></b></br><span style="color: #a9a29f;">Za 5 Sekund otworzy ci sie menu <span style="color:#ffffff;">PRZEBIERANIA!',
+	type = "info",
+	timeout = 3000,
+	layout = "topRight"
+})
+
+	Citizen.Wait(5000)
+ 	TriggerEvent('raid_clothes:openmenu2')
+end)
+
+exports.qtarget:AddBoxZone("ciuchygaleria", vector3(-1601.66, 1038.82, 12.46), 1, 1, {
+	name="ciuchygaleria",
+	heading=0.0,
+	debugPoly=false,
+	minZ=11.46,
+	maxZ=13.46,
+	}, {
+		options = {
+			{
+				event = "ciuszki",
+				icon = "fas fa-sign-in-alt",
+				label = "Otworz Sklep z Ciuszkami",
+			},
+		},
+		distance = 3.5
+})
